@@ -2,7 +2,7 @@ subprojects {
     apply plugin: 'java'
 
     group = 'com.nickuc.openlogin'
-    version = '1.6.7'
+    version = '1.6.7-MOD'
 
     sourceCompatibility = 1.8
     targetCompatibility = 1.8
@@ -16,7 +16,7 @@ subprojects {
     }
 
     dependencies {
-        def lombok = 'org.projectlombok:lombok:1.18.24'
+        def lombok = 'org.projectlombok:lombok:1.18.34'
         compileOnly lombok
         annotationProcessor lombok
         testCompileOnly lombok

@@ -55,7 +55,7 @@ Messages:
     password-changed: "&aYour password has been successfully changed."
 
     # Message sent when a user successfully logs
-    successful-login: "&aYou have successfully logged."
+    successful-login: "&aYou have successfully logged in."
 
     # Message sent when a user successfully registers
     successful-register: "&aYou have successfully registered."
