@@ -39,7 +39,15 @@ public enum Settings {
     ),
     ALLOW_ADVERTISING(
             "allow-advertising",
-            true
+            false
+    ),
+    SERVER_NAME(
+            "server-name",
+            "§7My-Server"
+    ),
+    SERVER_GREETING(
+            "server-greeting",
+            "§7§oWelcome to the server!"
     ),
     TIME_TO_LOGIN(
             "Security.time-to-login",

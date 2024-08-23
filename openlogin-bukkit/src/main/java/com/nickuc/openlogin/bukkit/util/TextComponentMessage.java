@@ -24,6 +24,7 @@
 
 package com.nickuc.openlogin.bukkit.util;
 
+import com.nickuc.openlogin.common.settings.Settings;
 import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.HoverEvent;
@@ -72,13 +73,14 @@ public class TextComponentMessage {
         spigot.sendMessage(second);
     }
 
-    public static void sendPluginAd(Player player) {
+    public static void sendServerGreeting(Player player) {
         // start (altered to remove the advertisements, now gives custom server greeting)
         player.sendMessage("");
-        player.sendMessage(" §9\uD83E\uDDD9 §7Welcome to Iðavöllr, §f" + player.getDisplayName() + "§7!");
-        player.sendMessage(" §7§o They who erected an altar and a temple high,");
-        player.sendMessage(" §7§o they set up forges, fashioned treasure,");
-        player.sendMessage(" §7§o shaped tongs and made tools.");
+        player.sendMessage(" §9\uD83E\uDDD9 §7Welcome to " + Settings.SERVER_NAME.asString() + ", §f" + player.getDisplayName() + "§7!");
+        String[] s = Settings.SERVER_GREETING.asString().split("\n");
+        for (String m : s){
+            player.sendMessage(m);
+        }
         player.sendMessage("");
     }
 

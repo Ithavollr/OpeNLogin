@@ -95,7 +95,7 @@ public class OpenLoginBukkit extends JavaPlugin {
         sendMessage(c + "/ \\_//| |_) |  __/ /\\  / /__| (_) | (_| | | | | |");
         sendMessage(c + "\\___/ | .__/ \\___\\_\\ \\/\\____/\\___/ \\__, |_|_| |_|");
         sendMessage(c + "      |_|                          |___/         ");
-        sendMessage(c + "By: www.nickuc.com / github.com/nickuc/OpeNLogin - V " + getDescription().getVersion());
+        sendMessage(c + "By: nickuc / github.com/ifiht/OpeNLogin - V " + getDescription().getVersion());
         sendMessage("");
 
         Server server = getServer();
@@ -203,31 +203,7 @@ public class OpenLoginBukkit extends JavaPlugin {
     }
 
     public void detectUpdates() {
-        String tagName = null;
-        try {
-            String result = HttpClient.DEFAULT.get("https://api.github.com/repos/nickuc/OpeNLogin/releases/latest");
-
-            // avoid use Google Gson to avoid problems with older versions.
-            if (result.contains("\"tag_name\":\"")) {
-                tagName = result.split("\"tag_name\":\"")[1];
-                if (tagName.contains("\",")) {
-                    tagName = latestVersion = tagName.split("\",")[0];
-                }
-            }
-        } catch (IOException e) {
-            sendMessage("§cFailed to find new updates.");
-            sendMessage("§cDownload the latest version at: https://github.com/nickuc/OpeNLogin/releases");
-        }
-        if (tagName == null) {
-            sendMessage("§cFailed to find new updates: invalid response.");
-            sendMessage("§cDownload the latest version at: https://github.com/nickuc/OpeNLogin/releases");
-        } else {
-            String currentVersion = "v" + getDescription().getVersion();
-            updateAvailable = !currentVersion.equals(tagName);
-            if (updateAvailable) {
-                sendMessage("A new version of OpeNLogin is available (" + currentVersion + " -> " + latestVersion + ").", "§e");
-            }
-        }
+        updateAvailable = false;
     }
 
     public boolean setupSettings() {

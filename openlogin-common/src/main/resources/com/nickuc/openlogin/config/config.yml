@@ -15,9 +15,17 @@ file-version: 1
 # For more information: https://github.com/nickuc/OpeNLogin/blob/master/docs/lang.md
 languageFile: 'messages_en.yml'
 
-# The plugin will be able to send advertisements to the administrators.
+# The plugin will be able to send advertisements to the administrators (no longer possible).
 # For example: nLogin recommendation.
-allow-advertising: true
+allow-advertising: false
+
+# Name your server here, it will be included when users log in.
+# For example: "Welcome to My-Server, User123!"
+server-name: "§7My-Server"
+
+# Custom message to send to users after they login.
+# For example: nLogin recommendation.
+server-greeting: "§7§oWelcome to \nthe server!"
 
 # Security system related settings.
 Security:

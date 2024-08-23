@@ -27,6 +27,7 @@ package com.nickuc.openlogin.bukkit.listener;
 import com.nickuc.openlogin.bukkit.OpenLoginBukkit;
 import com.nickuc.openlogin.bukkit.api.events.AsyncAuthenticateEvent;
 import com.nickuc.openlogin.bukkit.util.TextComponentMessage;
+import com.nickuc.openlogin.common.settings.Settings;
 import com.nickuc.openlogin.common.util.ClassUtils;
 import lombok.AllArgsConstructor;
 import org.bukkit.entity.Player;
@@ -45,13 +46,10 @@ public class PlayerAuthenticateListener implements Listener {
         if (player.hasPermission("openlogin.admin")) {
             if (welcomeMessage) {
                 player.sendMessage("");
-                player.sendMessage(" §eWelcome to OpeNLogin!");
+                player.sendMessage(" §9\uD83E\uDDD9 §7Welcome to " + Settings.SERVER_NAME.asString() + ", §f" + player.getDisplayName() + "§7!");
                 player.sendMessage("");
                 player.sendMessage(" §7Documentation:");
-                player.sendMessage(" §bhttps://github.com/nickuc/OpeNLogin/tree/master/docs");
-                player.sendMessage("");
-                player.sendMessage(" §7If you need help, fell free to contact our support:");
-                player.sendMessage(" §bhttps://www.nickuc.com/discord");
+                player.sendMessage(" §bhttps://github.com/ifiht/OpeNLogin/tree/master/docs");
                 player.sendMessage("");
                 welcomeMessage = false;
             } else if (plugin.isUpdateAvailable()) {
@@ -62,15 +60,7 @@ public class PlayerAuthenticateListener implements Listener {
             } else if (!plugin.isNewUser() &&
                     ClassUtils.exists("net.md_5.bungee.api.chat.TextComponent") &&
                     System.currentTimeMillis() - Long.parseLong(plugin.getPluginSettings().read("setup_date", "0")) > 7 * 86400 * 1000L) { // 7 days
-                String value = plugin.getPluginSettings().read("nlogin_ad");
-                if (value != null) {
-                    long timestamp = Long.parseLong(value);
-                    if (timestamp != -1 && System.currentTimeMillis() - timestamp > 30 * 86400 * 1000L) { // 30 days
-                        TextComponentMessage.sendPluginAd(player);
-                    }
-                } else {
-                    TextComponentMessage.sendPluginAd(player);
-                }
+                TextComponentMessage.sendServerGreeting(player);
             }
         }
     }
