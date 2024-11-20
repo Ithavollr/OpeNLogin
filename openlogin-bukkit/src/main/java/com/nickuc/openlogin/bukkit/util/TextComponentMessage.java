@@ -76,7 +76,7 @@ public class TextComponentMessage {
     public static void sendServerGreeting(Player player) {
         // start (altered to remove the advertisements, now gives custom server greeting)
         player.sendMessage("");
-        player.sendMessage(" §9\uD83E\uDDD9 §7Welcome to " + Settings.SERVER_NAME.asString() + ", §f" + player.getDisplayName() + "§7!");
+        player.sendMessage(" §fWelcome to " + Settings.SERVER_NAME.asString() + ", " + player.getDisplayName() + "!");
         String[] s = Settings.SERVER_GREETING.asString().split("\n");
         for (String m : s){
             player.sendMessage(m);

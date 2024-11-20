@@ -2,10 +2,10 @@ subprojects {
     apply plugin: 'java'
 
     group = 'com.nickuc.openlogin'
-    version = '1.6.7-MOD'
+    version = '4.0.0'
 
-    sourceCompatibility = 1.8
-    targetCompatibility = 1.8
+    sourceCompatibility = 17
+    targetCompatibility = 17
 
     javadoc {
         options.encoding = 'UTF-8'
