@@ -128,9 +128,7 @@ public class OpenLoginCommand extends BukkitAbstractCommand {
 
                     if (!confirmOpenLogin.getAndSet(true)) {
                         sender.sendMessage("");
-                        sender.sendMessage(" §cnLogin is generally a better solution for most users.");
-                        sender.sendMessage(" §7If you want to install §fOpeNLogin §7anyway,");
-                        sender.sendMessage(" §7please click on the message again.");
+                        sender.sendMessage(" §7please click on the message again to confirm.");
                         sender.sendMessage("");
                         return;
                     }
