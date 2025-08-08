@@ -1,6 +1,7 @@
 # OpeNLogin
 
-A practical, secure and friendly authentication plugin
+A practical, secure and friendly authentication plugin.  
+This plugin has been adapted for use with the Ithavollr staging server, kept offline for security and testing (legal MC users only).
 
 ### For development:
 
@@ -35,7 +36,3 @@ dependencies {
   </dependency>
 </dependencies>
 ```
-
-### Usage:
-![graph](https://bstats.org/signatures/bukkit/OpeNLogin.svg)
-Powered by <a href="https://bstats.org/">bStats</a>
