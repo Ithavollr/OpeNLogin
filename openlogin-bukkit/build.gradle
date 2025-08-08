@@ -1,11 +1,20 @@
+// Apply the plugin using Groovy syntax
+//plugins {
+//    id 'xyz.jpenilla.run-paper' version '2.2.0'
+//}
+
 dependencies {
     implementation project(':openlogin-common')
-
-    implementation 'org.bstats:bstats-bukkit:3.0.0'
     implementation 'com.tcoded:FoliaLib:0.3.3'
-
     compileOnly 'org.spigotmc:spigot-api:1.21.1-R0.1-SNAPSHOT'
 }
+
+// Configure the runServer task added by the plugin
+//runServer {
+    // Configure the Minecraft version for the test server.
+    // Your plugin's jar will be used automatically.
+//    minecraftVersion = '1.21.4'
+//}
 
 processResources {
     filesMatching('plugin.yml') {

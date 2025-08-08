@@ -48,9 +48,6 @@ import com.tcoded.folialib.FoliaLib;
 import com.tcoded.folialib.impl.ServerImplementation;
 import lombok.Getter;
 import lombok.Setter;
-import org.bstats.bukkit.Metrics;
-import org.bstats.charts.SimplePie;
-import org.bstats.charts.SingleLineChart;
 import org.bukkit.Server;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.PluginManager;
@@ -149,9 +146,6 @@ public class OpenLoginBukkit extends JavaPlugin {
         // setup api
         OpenLogin.setApi(new OLBukkitAPI(this));
 
-        // metrics
-        setupMetrics();
-
         // updates
         foliaLib.runAsync(task -> this.detectUpdates());
     }
@@ -194,12 +188,6 @@ public class OpenLoginBukkit extends JavaPlugin {
         pm.registerEvents(new PlayerJoinListeners(this), this);
         pm.registerEvents(new PlayerKickListeners(this), this);
         pm.registerEvents(new PlayerAuthenticateListener(this, newUser), this);
-    }
-
-    private void setupMetrics() {
-        Metrics metrics = new Metrics(this, 8951);
-        metrics.addCustomChart(new SimplePie("language_file", Settings.LANGUAGE_FILE::asString));
-        metrics.addCustomChart(new SingleLineChart("registered_users", () -> registeredUsers));
     }
 
     public void detectUpdates() {

@@ -12,6 +12,5 @@ shadowJar {
     archiveFileName = "OpenLogin-${project.version}.jar"
 
     def libPkg = project.group + '.lib.'
-    relocate 'org.bstats', libPkg + 'bstats'
     relocate 'com.tcoded.folialib', libPkg + 'folialib'
 }

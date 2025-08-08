@@ -77,10 +77,12 @@ public class PlayerGeneralListeners implements Listener {
         String name = player.getName();
         if (plugin.getLoginManagement().isAuthenticated(name)) return;
 
+        Location from = e.getFrom();
         Location to = e.getTo();
-        if (to != null && e.getFrom().getY() > to.getY()) return;
+        if (to != null && from.getY() > to.getY()) return;
 
-        plugin.getFoliaLib().teleportAsync(player, e.getFrom());
+        // Fix "too many packets" disconnect by using PlayerMoveEvent#setTo instead of Player#teleport
+        e.setTo(from);
         e.setCancelled(true);
     }
 
